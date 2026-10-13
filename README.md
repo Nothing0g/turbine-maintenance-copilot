@@ -114,3 +114,7 @@ The failed test is a real intermediate development state reproduced by the commi
 ## Skills demonstrated
 
 Python, pandas, NumPy, SQL-style data quality thinking, time-series feature engineering, anomaly detection, information retrieval, structured outputs, FastAPI, testing, logging, API design, evaluation, responsible AI, reproducibility, Git/GitHub, and production-minded documentation.
+
+## Verification
+
+The final branch has a GitHub Actions workflow in [`.github/workflows/ci.yml`](.github/workflows/ci.yml). The intermediate bug transcript is preserved at [`reports/debug/timestamp-window-failure.txt`](reports/debug/timestamp-window-failure.txt), and the exact verification commands are documented in [`docs/verification.md`](docs/verification.md).
