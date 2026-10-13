@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "turbine-maintenance-copilot"
+version = "0.1.0"
+description = "Evidence-grounded turbine maintenance decision support with anomaly detection and retrieval"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "pandas>=2.0", "fastapi>=0.100", "uvicorn>=0.22"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "httpx>=0.25"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
