@@ -16,8 +16,8 @@
     "structured_response_fields_present": true
   },
   "latency_ms": {
-    "p50": 10.087,
-    "p95_approx": 12.955
+    "p50": 9.71,
+    "p95_approx": 12.374
   },
   "cases": [
     {
@@ -48,7 +48,7 @@
       ],
       "limitations": [],
       "human_review_required": true,
-      "latency_ms": 12.955
+      "latency_ms": 12.374
     },
     {
       "asset_id": "HP-BRG-01",
@@ -72,7 +72,7 @@
       ],
       "limitations": [],
       "human_review_required": false,
-      "latency_ms": 7.218
+      "latency_ms": 7.045
     }
   ],
   "limitations": [
