@@ -1,0 +1,83 @@
+{
+  "dataset": {
+    "rows": 144,
+    "assets": [
+      "HP-BRG-01",
+      "LP-BRG-02"
+    ],
+    "synthetic": true,
+    "seed": 42
+  },
+  "checks": {
+    "quality_passed": true,
+    "lp_bearing_review_required": true,
+    "healthy_asset_not_flagged": true,
+    "evidence_retrieved_for_review": true,
+    "structured_response_fields_present": true
+  },
+  "latency_ms": {
+    "p50": 10.087,
+    "p95_approx": 12.955
+  },
+  "cases": [
+    {
+      "asset_id": "LP-BRG-02",
+      "status": "review_required",
+      "finding": "The latest bearing-related telemetry is outside its recent operating envelope.",
+      "recommended_action": "Inspect lubrication flow and verify the temperature sensor before returning the asset to normal service.",
+      "confidence": 0.82,
+      "evidence": [
+        {
+          "evidence_id": "PROC-LUBE-001",
+          "title": "Bearing lubrication inspection",
+          "excerpt": "Inspect lubrication flow, oil pressure, filter differential pressure, and bearing temperature sensor connections when a bearing temperature trend moves outside its recent operating envelope. Do not return equipment to normal service until the cause is reviewed by an authorized maintenance engineer.",
+          "score": 0.8
+        },
+        {
+          "evidence_id": "WORK-2026-014",
+          "title": "Synthetic prior work order",
+          "excerpt": "A previous LP bearing review found elevated temperature alongside reduced lubrication flow. The work order outcome was filter inspection and sensor verification. This synthetic record is included to test evidence retrieval and must not be treated as a plant instruction.",
+          "score": 0.8
+        },
+        {
+          "evidence_id": "PROC-VIB-002",
+          "title": "Vibration cross-check",
+          "excerpt": "Use vibration readings as a supporting signal for rotating-equipment diagnosis. A temperature-only anomaly should be treated as a review trigger, not as proof of mechanical failure. Check sensor health and compare against the last accepted baseline.",
+          "score": 0.2
+        }
+      ],
+      "limitations": [],
+      "human_review_required": true,
+      "latency_ms": 12.955
+    },
+    {
+      "asset_id": "HP-BRG-01",
+      "status": "normal",
+      "finding": "The latest observation is within the recent operating envelope.",
+      "recommended_action": "Continue routine monitoring and review the next scheduled inspection.",
+      "confidence": 0.76,
+      "evidence": [
+        {
+          "evidence_id": "PROC-LUBE-001",
+          "title": "Bearing lubrication inspection",
+          "excerpt": "Inspect lubrication flow, oil pressure, filter differential pressure, and bearing temperature sensor connections when a bearing temperature trend moves outside its recent operating envelope. Do not return equipment to normal service until the cause is reviewed by an authorized maintenance engineer.",
+          "score": 0.25
+        },
+        {
+          "evidence_id": "WORK-2026-014",
+          "title": "Synthetic prior work order",
+          "excerpt": "A previous LP bearing review found elevated temperature alongside reduced lubrication flow. The work order outcome was filter inspection and sensor verification. This synthetic record is included to test evidence retrieval and must not be treated as a plant instruction.",
+          "score": 0.25
+        }
+      ],
+      "limitations": [],
+      "human_review_required": false,
+      "latency_ms": 7.218
+    }
+  ],
+  "limitations": [
+    "Synthetic telemetry is not a plant failure benchmark.",
+    "Thresholds require domain calibration.",
+    "Lexical retrieval is a transparent baseline, not a production reranker."
+  ]
+}
