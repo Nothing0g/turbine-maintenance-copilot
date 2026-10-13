@@ -27,7 +27,7 @@ class CopilotService:
             return Diagnosis(asset_id, "insufficient_data", "No telemetry was found for this asset.", "Do not make a maintenance decision; verify asset identity and historian connectivity.", 0.0, tuple(), ("asset_not_found",), True, _ms(started))
         end = asset["timestamp"].max()
         start = end - pd.Timedelta(hours=hours)
-        window = asset[(asset["timestamp"] >= start) & (asset["timestamp"] <= end)]
+        window = asset[(asset["timestamp"] >= start) & (asset["timestamp"] < end)]
         quality = profile_telemetry(window)
         if len(window) < 7 or not quality.passed:
             return Diagnosis(asset_id, "insufficient_data", "The requested telemetry window did not pass quality checks.", "Verify telemetry freshness, completeness, and units before interpreting the trend.", 0.1, tuple(), ("insufficient_or_invalid_telemetry",), True, _ms(started))
